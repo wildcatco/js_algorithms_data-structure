@@ -99,6 +99,20 @@ class BinarySearchTree {
 
     return visited;
   }
+
+  dfsInOrder() {
+    const visited = [];
+
+    const traverse = (node) => {
+      node.left && traverse(node.left);
+      visited.push(node.value);
+      node.right && traverse(node.right);
+    };
+
+    this.root && traverse(this.root);
+
+    return visited;
+  }
 }
 
 module.exports = BinarySearchTree;
