@@ -33,3 +33,16 @@ it('find', () => {
   expect(bst.find(8)).toBe(false);
   expect(bst.find(4)).toBe(false);
 });
+
+it('dfs', () => {
+  const bst = new BinarySearchTree();
+
+  bst.insert(5);
+  bst.insert(2);
+  bst.insert(3);
+  bst.insert(7);
+  bst.insert(6);
+  bst.insert(1);
+
+  expect(bst.bfs()).toEqual([5, 2, 7, 1, 3, 6]);
+});

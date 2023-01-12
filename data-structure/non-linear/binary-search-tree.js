@@ -52,6 +52,23 @@ class BinarySearchTree {
 
     return false;
   }
+
+  bfs() {
+    const q = [];
+    const visited = [];
+
+    this.root && q.push(this.root);
+    while (q.length !== 0) {
+      const dequeued = q.shift();
+
+      visited.push(dequeued.value);
+
+      dequeued.left && q.push(dequeued.left);
+      dequeued.right && q.push(dequeued.right);
+    }
+
+    return visited;
+  }
 }
 
 module.exports = BinarySearchTree;
