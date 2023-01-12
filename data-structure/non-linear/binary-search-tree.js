@@ -84,6 +84,21 @@ class BinarySearchTree {
 
     return visited;
   }
+
+  dfsPostOrder() {
+    const visited = [];
+
+    const traverse = (node) => {
+      node.left && traverse(node.left);
+      node.right && traverse(node.right);
+
+      visited.push(node.value);
+    };
+
+    this.root && traverse(this.root);
+
+    return visited;
+  }
 }
 
 module.exports = BinarySearchTree;

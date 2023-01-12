@@ -59,3 +59,16 @@ it('dfs - pre order', () => {
 
   expect(bst.dfsPreOrder()).toEqual([5, 2, 1, 3, 7, 6]);
 });
+
+it('dfs - post order', () => {
+  const bst = new BinarySearchTree();
+
+  bst.insert(5);
+  bst.insert(2);
+  bst.insert(3);
+  bst.insert(7);
+  bst.insert(6);
+  bst.insert(1);
+
+  expect(bst.dfsPostOrder()).toEqual([1, 3, 2, 6, 7, 5]);
+});
