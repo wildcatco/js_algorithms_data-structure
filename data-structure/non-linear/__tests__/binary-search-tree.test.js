@@ -34,7 +34,7 @@ it('find', () => {
   expect(bst.find(4)).toBe(false);
 });
 
-it('dfs', () => {
+it('bfs', () => {
   const bst = new BinarySearchTree();
 
   bst.insert(5);
@@ -45,4 +45,17 @@ it('dfs', () => {
   bst.insert(1);
 
   expect(bst.bfs()).toEqual([5, 2, 7, 1, 3, 6]);
+});
+
+it('dfs - pre order', () => {
+  const bst = new BinarySearchTree();
+
+  bst.insert(5);
+  bst.insert(2);
+  bst.insert(3);
+  bst.insert(7);
+  bst.insert(6);
+  bst.insert(1);
+
+  expect(bst.dfsPreOrder()).toEqual([5, 2, 1, 3, 7, 6]);
 });
