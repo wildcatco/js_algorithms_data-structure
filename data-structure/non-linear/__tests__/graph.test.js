@@ -56,3 +56,90 @@ it('removeVertex', () => {
   expect(g.adjacencyList['Aspen']).toEqual(['Tokyo']);
   expect(g.adjacencyList['Dallas']).toBeUndefined();
 });
+
+it('dfsRecursive', () => {
+  const g = new Graph();
+
+  g.addVertex('A');
+  g.addVertex('B');
+  g.addVertex('C');
+  g.addVertex('D');
+  g.addVertex('E');
+  g.addVertex('F');
+
+  g.addEdge('A', 'B');
+  g.addEdge('A', 'C');
+  g.addEdge('B', 'D');
+  g.addEdge('C', 'E');
+  g.addEdge('D', 'E');
+  g.addEdge('D', 'F');
+  g.addEdge('E', 'F');
+
+  //          A
+  //        /  \
+  //       B   C
+  //      |    |
+  //     D ---E
+  //      \  /
+  //       F
+
+  expect(g.dfsRecursive('A')).toEqual(['A', 'B', 'D', 'E', 'C', 'F']);
+});
+
+it('dfsIterative', () => {
+  const g = new Graph();
+
+  g.addVertex('A');
+  g.addVertex('B');
+  g.addVertex('C');
+  g.addVertex('D');
+  g.addVertex('E');
+  g.addVertex('F');
+
+  g.addEdge('A', 'B');
+  g.addEdge('A', 'C');
+  g.addEdge('B', 'D');
+  g.addEdge('C', 'E');
+  g.addEdge('D', 'E');
+  g.addEdge('D', 'F');
+  g.addEdge('E', 'F');
+
+  //          A
+  //        /  \
+  //       B   C
+  //      |    |
+  //     D ---E
+  //      \  /
+  //       F
+
+  expect(g.dfsIterative('A')).toEqual(['A', 'C', 'E', 'F', 'D', 'B']);
+});
+
+it('bfs', () => {
+  const g = new Graph();
+
+  g.addVertex('A');
+  g.addVertex('B');
+  g.addVertex('C');
+  g.addVertex('D');
+  g.addVertex('E');
+  g.addVertex('F');
+
+  g.addEdge('A', 'B');
+  g.addEdge('A', 'C');
+  g.addEdge('B', 'D');
+  g.addEdge('C', 'E');
+  g.addEdge('D', 'E');
+  g.addEdge('D', 'F');
+  g.addEdge('E', 'F');
+
+  //          A
+  //        /  \
+  //       B   C
+  //      |    |
+  //     D ---E
+  //      \  /
+  //       F
+
+  expect(g.bfs('A')).toEqual(['A', 'B', 'C', 'D', 'E', 'F']);
+});
